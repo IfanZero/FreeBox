@@ -228,6 +228,7 @@ jlink {
             installerOptions += ['--linux-app-release', getCurrentArch()]
         } else if (org.gradle.internal.os.OperatingSystem.current().macOsX) {
             icon = "${projectDir}/resources/logo/FreeBox.icns"
+            runtimeImage = "$buildDir/image"
             // 修改输出的安装包名称
             installerOptions += [
                     '--mac-app-category', 'public.app-category.video'
