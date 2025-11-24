@@ -70,7 +70,8 @@ jobs:
           echo "LISTING build/jpackage CONTENTS"
           ls -R build/jpackage
           cd build/jpackage/
-          
+          zip -r FreeBox.zip FreeBox.app
+
           if [ -f "$OLD_DMG" ]; then
             mv "$OLD_DMG" "../../distribution/$NEW_DMG"
           else
@@ -85,5 +86,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: FreeBox-macos-${{ matrix.arch }}-${{ github.sha }}
-          path: distribution/*.dmg
+          path: FreeBox.zip
           retention-days: 30
