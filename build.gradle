@@ -192,9 +192,7 @@ jlink {
     jpackage {
         mainClassName = application.mainClass
         installerName = launcherName
-        installerType = project.hasProperty('jpackage.installerType') ?
-                project.getProperties().get('jpackage.installerType') :
-                'msi'
+        installerType = project.findProperty('jpackage.installerType') ?: 'dmg'
         appVersion = project.version
         vendor = 'knifer'
         installerOptions = [
@@ -228,7 +226,6 @@ jlink {
             installerOptions += ['--linux-app-release', getCurrentArch()]
         } else if (org.gradle.internal.os.OperatingSystem.current().macOsX) {
             icon = "${projectDir}/resources/logo/FreeBox.icns"
-            runtimeImage = "$buildDir/image"
             // 修改输出的安装包名称
             installerOptions += [
                     '--mac-app-category', 'public.app-category.video'
