@@ -63,6 +63,7 @@ jobs:
           mkdir -p distribution
           
           chmod +x ./gradlew
+          ./gradlew jlink
           
           ./gradlew jpackage "-Pjpackage.installerType=dmg" "-Pjpackage.arch=${ARCH}" -x check -x test
           cd build/jpackage/
