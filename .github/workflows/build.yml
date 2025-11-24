@@ -34,7 +34,7 @@ jobs:
       matrix:
         include:
           - arch: amd64
-            runner: macos-13-intel
+            runner: macos-13
 
     steps:
       - name: Checkout code
